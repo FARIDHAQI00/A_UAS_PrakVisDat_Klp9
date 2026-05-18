@@ -28,7 +28,7 @@ Chart.defaults.plugins.tooltip.boxPadding = 4;
 // Stores active RAF IDs per element so we can cancel previous animation
 const _kpiRafMap = new Map();
 
-function animateValue(element, end, duration = 1800, isFloat = false, suffix = '') {
+function animateValue(element, end, duration = 3500, isFloat = false, suffix = '') {
   // Parse current displayed value as the start (so transitions feel fluid)
   const rawText = element.textContent.replace(/[,%]/g, '').trim();
   const start = parseFloat(rawText) || 0;
@@ -74,10 +74,10 @@ function updateKPIs() {
   const lateEl   = document.getElementById('kpi-late');
   const ratingEl = document.getElementById('kpi-rating');
 
-  if (totalEl)  animateValue(totalEl,  kpis.total,      1800, false, '');
-  if (onTimeEl) animateValue(onTimeEl, kpis.onTimeRate, 1800, true,  '%');
-  if (lateEl)   animateValue(lateEl,   kpis.late,       1800, false, '');
-  if (ratingEl) animateValue(ratingEl, kpis.avgRating,  1800, true,  '');
+  if (totalEl)  animateValue(totalEl,  kpis.total,      3500, false, '');
+  if (onTimeEl) animateValue(onTimeEl, kpis.onTimeRate, 3500, true,  '%');
+  if (lateEl)   animateValue(lateEl,   kpis.late,       3500, false, '');
+  if (ratingEl) animateValue(ratingEl, kpis.avgRating,  3500, true,  '');
 }
 
 // Initialize everything
