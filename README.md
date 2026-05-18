@@ -30,7 +30,7 @@ Dashboard ini menampilkan 7 visualisasi data interaktif menggunakan library **Ap
 - **HTML5** - Struktur utama halaman web.
 - **Vanilla CSS (CSS3)** - Styling dengan tema *Dark Luxury* (warna amber/emas), *CSS Variables*, Flexbox/Grid, dan *Micro-animations*.
 - **Vanilla JavaScript (ES6)** - Logika utama, manipulasi DOM, dan pengelolaan data statis.
-- **[ApexCharts.js](https://apexcharts.com/)** - Library visualisasi data yang interaktif dan responsif.
+- **[Chart.js](https://www.chartjs.org/) & [D3.js](https://d3js.org/)** - Library visualisasi data yang interaktif dan responsif, sesuai dengan ketentuan yang membolehkan penggunaan D3.js.
 - **[Phosphor Icons](https://phosphoricons.com/)** - Ikon SVG premium yang terintegrasi pada antarmuka.
 
 ## 📂 Struktur Direktori

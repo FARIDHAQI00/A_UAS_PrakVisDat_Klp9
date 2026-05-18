@@ -1,6 +1,6 @@
 /**
  * DATA.JS — Load & parse CSV, all data transformations
- * Uses PapaParse to load Train_preprocessed.csv
+ * Uses d3.csv to load Train_preprocessed.csv
  */
 
 const DataManager = {
@@ -8,41 +8,33 @@ const DataManager = {
   filteredData: [],
 
   async load() {
-    return new Promise((resolve, reject) => {
-      Papa.parse('data/Train_preprocessed.csv', {
-        download: true,
-        header: true,
-        dynamicTyping: true,
-        skipEmptyLines: true,
-        complete: (results) => {
-          // Clean data — trim whitespace from string fields
-          this.rawData = results.data.map(row => ({
-            ID: row.ID,
-            Warehouse_block: (row.Warehouse_block || '').toString().trim(),
-            Mode_of_Shipment: (row.Mode_of_Shipment || '').toString().trim(),
-            Customer_care_calls: +row.Customer_care_calls || 0,
-            Customer_rating: +row.Customer_rating || 0,
-            Cost_of_the_Product: +row.Cost_of_the_Product || 0,
-            Prior_purchases: +row.Prior_purchases || 0,
-            Product_importance: (row.Product_importance || '').toString().trim().toLowerCase(),
-            Gender: (row.Gender || '').toString().trim(),
-            Discount_offered: +row.Discount_offered || 0,
-            Weight_in_gms: +row.Weight_in_gms || 0,
-            Delivery_Status: (row.Delivery_Status || '').toString().trim(),
-            Weight_Category: (row.Weight_Category || '').toString().trim(),
-            Discount_Category: (row.Discount_Category || '').toString().trim()
-          })).filter(row => row.ID != null && row.Delivery_Status !== '');
+    try {
+      const data = await d3.csv('data/Train_preprocessed.csv', d3.autoType);
+      
+      this.rawData = data.map(row => ({
+        ID: row.ID,
+        Warehouse_block: (row.Warehouse_block || '').toString().trim(),
+        Mode_of_Shipment: (row.Mode_of_Shipment || '').toString().trim(),
+        Customer_care_calls: +row.Customer_care_calls || 0,
+        Customer_rating: +row.Customer_rating || 0,
+        Cost_of_the_Product: +row.Cost_of_the_Product || 0,
+        Prior_purchases: +row.Prior_purchases || 0,
+        Product_importance: (row.Product_importance || '').toString().trim().toLowerCase(),
+        Gender: (row.Gender || '').toString().trim(),
+        Discount_offered: +row.Discount_offered || 0,
+        Weight_in_gms: +row.Weight_in_gms || 0,
+        Delivery_Status: (row.Delivery_Status || '').toString().trim(),
+        Weight_Category: (row.Weight_Category || '').toString().trim(),
+        Discount_Category: (row.Discount_Category || '').toString().trim()
+      })).filter(row => row.ID != null && row.Delivery_Status !== '');
 
-          this.filteredData = [...this.rawData];
-          console.log(`✅ Loaded ${this.rawData.length} rows`);
-          resolve(this.rawData);
-        },
-        error: (err) => {
-          console.error('❌ CSV parse error:', err);
-          reject(err);
-        }
-      });
-    });
+      this.filteredData = [...this.rawData];
+      console.log(`✅ Loaded ${this.rawData.length} rows`);
+      return this.rawData;
+    } catch (err) {
+      console.error('❌ CSV parse error:', err);
+      throw err;
+    }
   },
 
   applyFilters(filterState) {
