@@ -290,20 +290,28 @@ body::before {
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-in-out);
   white-space: nowrap;
+  position: relative;
 }
 
 .filter-pill:hover {
   border-color: var(--accent-primary);
   color: var(--text-primary);
   background: rgba(245,158,11,0.08);
+  transform: scale(1.06);
+  box-shadow: 0 0 10px rgba(245,158,11,0.20);
 }
 
 .filter-pill.active {
-  background: var(--accent-primary);
-  border-color: var(--accent-primary);
-  color: var(--text-inverse);
+  background: linear-gradient(135deg, #f97316, #fbbf24);
+  border-color: transparent;
+  color: #09090b;
   font-weight: var(--weight-semibold);
-  box-shadow: 0 0 14px rgba(245,158,11,0.3);
+  box-shadow: 0 0 16px rgba(249,115,22,0.45);
+}
+
+.filter-pill.active:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 22px rgba(249,115,22,0.6);
 }
 
 .filter-counter {
@@ -324,7 +332,7 @@ body::before {
 .filter-reset {
   padding: var(--space-1) var(--space-4);
   border-radius: var(--radius-full);
-  border: 1px solid rgba(239,68,68,0.3);
+  border: 1px solid rgba(239,68,68,0.35);
   background: transparent;
   color: var(--color-danger);
   font-family: var(--font-body);
@@ -338,6 +346,8 @@ body::before {
   background: var(--color-danger);
   border-color: var(--color-danger);
   color: white;
+  transform: scale(1.06);
+  box-shadow: 0 0 14px rgba(239,68,68,0.4);
 }
 
 /* === DASHBOARD GRID === */
@@ -459,12 +469,21 @@ body::before {
 .chart-btn:hover {
   border-color: var(--accent-primary);
   color: var(--text-primary);
+  transform: scale(1.06);
+  box-shadow: 0 0 10px rgba(245,158,11,0.2);
 }
 
 .chart-btn.active {
-  background: var(--accent-primary);
-  border-color: var(--accent-primary);
-  color: white;
+  background: linear-gradient(135deg, #f97316, #fbbf24);
+  border-color: transparent;
+  color: #09090b;
+  font-weight: var(--weight-semibold);
+  box-shadow: 0 0 14px rgba(249,115,22,0.40);
+}
+
+.chart-btn.active:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 20px rgba(249,115,22,0.55);
 }
 
 .chart-select {
@@ -604,11 +623,33 @@ body::before {
   transition: all var(--duration-normal) var(--ease-in-out);
   position: relative;
   overflow: hidden;
+  /* Gradient border via box-shadow trick on ::after */
+}
+
+.insight-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-xl);
+  padding: 1px;
+  background: linear-gradient(135deg, transparent 40%, rgba(249,115,22,0.15), transparent 60%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-in-out);
+  pointer-events: none;
+}
+
+.insight-card:hover::after {
+  opacity: 1;
+  animation: insightBorderSweep 1.8s linear infinite;
 }
 
 .insight-card:hover {
-  border-color: rgba(245,158,11,0.2);
-  transform: translateY(-2px);
+  border-color: rgba(245,158,11,0.25);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 24px rgba(249,115,22,0.06);
 }
 
 .insight-card::before {
@@ -616,11 +657,17 @@ body::before {
   position: absolute;
   top: 0; left: 0;
   width: 4px; height: 100%;
+  transition: width var(--duration-normal) var(--ease-spring);
+  z-index: 1;
 }
 
-.insight-card:nth-child(1)::before { background: var(--color-danger); }
-.insight-card:nth-child(2)::before { background: var(--color-warning); }
-.insight-card:nth-child(3)::before { background: var(--color-success); }
+.insight-card:hover::before {
+  width: 6px;
+}
+
+.insight-card:nth-child(1)::before { background: linear-gradient(180deg, #ef4444, #b91c1c); }
+.insight-card:nth-child(2)::before { background: linear-gradient(180deg, #fbbf24, #f97316); }
+.insight-card:nth-child(3)::before { background: linear-gradient(180deg, #22c55e, #16a34a); }
 
 .insight-card-icon {
   font-size: var(--text-2xl);

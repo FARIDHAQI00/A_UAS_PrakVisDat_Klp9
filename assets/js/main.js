@@ -103,6 +103,13 @@ async function initDashboard() {
     // Listen for filter changes to update KPIs
     document.addEventListener('filterChange', () => {
       updateKPIs();
+      // Smooth transition: briefly flash .updating on all chart bodies
+      document.querySelectorAll('.chart-body').forEach(el => {
+        el.classList.remove('updating');
+        void el.offsetWidth; // force reflow to restart animation
+        el.classList.add('updating');
+        el.addEventListener('animationend', () => el.classList.remove('updating'), { once: true });
+      });
     });
 
     // Hide loading screen
