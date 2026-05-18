@@ -24,42 +24,60 @@ Chart.defaults.plugins.tooltip.cornerRadius = 8;
 Chart.defaults.plugins.tooltip.displayColors = true;
 Chart.defaults.plugins.tooltip.boxPadding = 4;
 
-// Animated count-up for KPI
-function animateValue(element, start, end, duration, isFloat = false, suffix = '') {
+// ── Animated count-up for KPI ──
+// Stores active RAF IDs per element so we can cancel previous animation
+const _kpiRafMap = new Map();
+
+function animateValue(element, end, duration = 1800, isFloat = false, suffix = '') {
+  // Parse current displayed value as the start (so transitions feel fluid)
+  const rawText = element.textContent.replace(/[,%]/g, '').trim();
+  const start = parseFloat(rawText) || 0;
+
+  // Cancel any in-progress animation on this element
+  if (_kpiRafMap.has(element)) {
+    cancelAnimationFrame(_kpiRafMap.get(element));
+  }
+
   const startTime = performance.now();
+
   const update = (currentTime) => {
     const elapsed = currentTime - startTime;
     const progress = Math.min(elapsed / duration, 1);
-    // easeOutQuart
-    const eased = 1 - Math.pow(1 - progress, 4);
+
+    // easeOutExpo — starts fast, glides to a stop
+    const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+
     const current = start + (end - start) * eased;
-    
+
     if (isFloat) {
       element.textContent = current.toFixed(2) + suffix;
     } else {
       element.textContent = Math.round(current).toLocaleString() + suffix;
     }
-    
+
     if (progress < 1) {
-      requestAnimationFrame(update);
+      _kpiRafMap.set(element, requestAnimationFrame(update));
+    } else {
+      _kpiRafMap.delete(element);
     }
   };
-  requestAnimationFrame(update);
+
+  _kpiRafMap.set(element, requestAnimationFrame(update));
 }
 
 // Update KPI cards
 function updateKPIs() {
   const kpis = DataManager.getKPIs();
-  
-  const totalEl = document.getElementById('kpi-total');
+
+  const totalEl  = document.getElementById('kpi-total');
   const onTimeEl = document.getElementById('kpi-ontime');
-  const lateEl = document.getElementById('kpi-late');
+  const lateEl   = document.getElementById('kpi-late');
   const ratingEl = document.getElementById('kpi-rating');
 
-  if (totalEl) animateValue(totalEl, 0, kpis.total, 800);
-  if (onTimeEl) animateValue(onTimeEl, 0, kpis.onTimeRate, 800, true, '%');
-  if (lateEl) animateValue(lateEl, 0, kpis.late, 800);
-  if (ratingEl) animateValue(ratingEl, 0, kpis.avgRating, 800, true);
+  if (totalEl)  animateValue(totalEl,  kpis.total,      1800, false, '');
+  if (onTimeEl) animateValue(onTimeEl, kpis.onTimeRate, 1800, true,  '%');
+  if (lateEl)   animateValue(lateEl,   kpis.late,       1800, false, '');
+  if (ratingEl) animateValue(ratingEl, kpis.avgRating,  1800, true,  '');
 }
 
 // Initialize everything
