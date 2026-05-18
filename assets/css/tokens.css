@@ -1,0 +1,128 @@
+/* ============================================
+   DESIGN TOKENS — E-Commerce Shipment Analytics
+   Theme: Dark Luxury — Warm Amber & Gold
+   Inspired by GeoSales Premium Dashboard
+   ============================================ */
+
+:root {
+  /* === BACKGROUND LAYERS === */
+  --bg-base:        #09090b;   /* Near-black — deepest background */
+  --bg-surface:     #131316;   /* Card & panel surface */
+  --bg-elevated:    #1a1a1f;   /* Dropdown, tooltip, modal */
+  --bg-hover:       #222228;   /* Hover state */
+  --bg-border:      #27272a;   /* Subtle borders */
+  --bg-border-light:#3a3a40;   /* Visible borders on hover */
+
+  /* === TEXT === */
+  --text-primary:   #fafaf9;   /* Pure white headlines */
+  --text-secondary: #a1a1aa;   /* Labels, descriptions */
+  --text-muted:     #52525b;   /* Placeholder, disabled, meta */
+  --text-inverse:   #09090b;   /* Text on light bg */
+
+  /* === BRAND / ACCENT — Warm Amber Gold === */
+  --accent-primary: #f59e0b;   /* Amber — hero accent */
+  --accent-light:   #fbbf24;   /* Lighter amber for glow */
+  --accent-dark:    #d97706;   /* Darker amber for active */
+  --accent-glow:    rgba(245, 158, 11, 0.10);
+  --accent-glow-strong: rgba(245, 158, 11, 0.20);
+
+  /* === SEMANTIC (STATUS) === */
+  --color-success:  #22c55e;   /* Green — On Time */
+  --color-danger:   #ef4444;   /* Red — Late / Critical */
+  --color-warning:  #f59e0b;   /* Amber — Warning */
+  --color-neutral:  #71717a;   /* Neutral gray */
+
+  /* === CHART PALETTE — Warm Gradient === */
+  --chart-1: #f59e0b;   /* Amber — primary series */
+  --chart-2: #22c55e;   /* Green — On Time */
+  --chart-3: #ef4444;   /* Red — Late */
+  --chart-4: #fbbf24;   /* Yellow-gold — highlight */
+  --chart-5: #f97316;   /* Orange — secondary */
+  --chart-6: #a855f7;   /* Purple — accent alt */
+  --chart-7: #06b6d4;   /* Cyan — cool accent */
+
+  /* === WAREHOUSE COLORS (heatmap) === */
+  --warehouse-a: #f59e0b;
+  --warehouse-b: #f97316;
+  --warehouse-c: #22c55e;
+  --warehouse-d: #fbbf24;
+  --warehouse-f: #ef4444;
+
+  /* === HEATMAP SCALE — Dark to Crimson Red === */
+  --heat-0:  #131316;
+  --heat-1:  #2a1a1a;
+  --heat-2:  #4a2020;
+  --heat-3:  #7a2828;
+  --heat-4:  #b83232;
+  --heat-5:  #ef4444;
+
+  /* === TYPOGRAPHY === */
+  --font-display:  'Plus Jakarta Sans', sans-serif;
+  --font-body:     'Plus Jakarta Sans', sans-serif;
+  --font-mono:     'Space Mono', monospace;
+
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-lg:   1.125rem;
+  --text-xl:   1.25rem;
+  --text-2xl:  1.5rem;
+  --text-3xl:  1.875rem;
+  --text-4xl:  2.25rem;
+  --text-5xl:  3rem;
+
+  --weight-normal:    400;
+  --weight-medium:    500;
+  --weight-semibold:  600;
+  --weight-bold:      700;
+  --weight-extrabold: 800;
+
+  --leading-tight:  1.25;
+  --leading-normal: 1.5;
+  --leading-loose:  1.75;
+
+  --tracking-tight:  -0.025em;
+  --tracking-normal:  0em;
+  --tracking-wide:    0.05em;
+  --tracking-widest:  0.15em;
+
+  /* === SPACING === */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+
+  /* === BORDER RADIUS === */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-full: 9999px;
+
+  /* === SHADOWS — Warm tinted === */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.5);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.6);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.7);
+  --shadow-glow: 0 0 20px rgba(245,158,11,0.15);
+  --shadow-card: 0 1px 0 rgba(255,255,255,0.03) inset,
+                 0 4px 24px rgba(0,0,0,0.7);
+
+  /* === ANIMATION === */
+  --duration-fast:   150ms;
+  --duration-normal: 300ms;
+  --duration-slow:   600ms;
+  --duration-slower: 1000ms;
+
+  --ease-in-out:  cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-out:     cubic-bezier(0, 0, 0.2, 1);
+  --ease-in:      cubic-bezier(0.4, 0, 1, 1);
+  --ease-spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-bounce:  cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}

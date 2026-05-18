@@ -1,0 +1,103 @@
+/* ============================================
+   ANIMATIONS — Keyframes & Transitions Library
+   ============================================ */
+
+/* Fade + slide up (for cards, tooltips) */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade in (for overlays) */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Grow from bottom (for bar chart) */
+@keyframes growUp {
+  from { transform: scaleY(0); transform-origin: bottom; }
+  to   { transform: scaleY(1); transform-origin: bottom; }
+}
+
+/* Number count up (for KPI) */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Pulse glow (for active state) */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(245,158,11,0); }
+  50%       { box-shadow: 0 0 0 6px rgba(245,158,11,0.25); }
+}
+
+/* Shimmer loading */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Spin */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Scale pop in */
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.8); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* Slide from left */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Staggered reveal classes */
+.stagger-child:nth-child(1) { animation-delay: 0ms; }
+.stagger-child:nth-child(2) { animation-delay: 80ms; }
+.stagger-child:nth-child(3) { animation-delay: 160ms; }
+.stagger-child:nth-child(4) { animation-delay: 240ms; }
+.stagger-child:nth-child(5) { animation-delay: 320ms; }
+.stagger-child:nth-child(6) { animation-delay: 400ms; }
+.stagger-child:nth-child(7) { animation-delay: 480ms; }
+
+/* Animation utility classes */
+.animate-fade-slide-up {
+  animation: fadeSlideUp var(--duration-slow) var(--ease-out) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--duration-normal) var(--ease-out) both;
+}
+
+.animate-pop-in {
+  animation: popIn var(--duration-normal) var(--ease-spring) both;
+}
+
+.animate-slide-left {
+  animation: slideInLeft var(--duration-slow) var(--ease-out) both;
+}
+
+/* Loading state */
+.loading-shimmer {
+  background: linear-gradient(90deg, 
+    var(--bg-surface) 25%, 
+    var(--bg-elevated) 50%, 
+    var(--bg-surface) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid var(--bg-border);
+  border-top-color: var(--accent-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
