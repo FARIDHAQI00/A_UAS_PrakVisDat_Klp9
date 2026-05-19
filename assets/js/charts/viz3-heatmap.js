@@ -28,7 +28,7 @@ const HeatmapChart = {
     const warehouses = ['A', 'B', 'C', 'D', 'F'];
     const modes = ['Ship', 'Flight', 'Road'];
 
-    const margin = { top: 30, right: 30, bottom: 50, left: 80 };
+    const margin = { top: 50, right: 30, bottom: 50, left: 80 };
     const width = container.clientWidth - margin.left - margin.right;
     const height = 280 - margin.top - margin.bottom;
 
@@ -153,7 +153,7 @@ const HeatmapChart = {
     const legendWidth = 200;
     const legendHeight = 10;
     const legendG = svg.append('g')
-      .attr('transform', `translate(${width - legendWidth},${-20})`);
+      .attr('transform', `translate(${width - legendWidth},${-40})`);
 
     const legendScale = d3.scaleLinear().domain([0, maxRate]).range([0, legendWidth]);
     const legendAxis = d3.axisBottom(legendScale).ticks(5).tickFormat(d => d + '%');

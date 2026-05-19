@@ -204,8 +204,8 @@
             <p class="chart-card-subtitle">Pola diskon terhadap status pengiriman</p>
           </div>
           <div class="chart-card-controls">
-            <button class="chart-btn active" id="viz4-toggle-ontime" style="color:var(--color-success);border-color:var(--color-success)">Tepat Waktu</button>
-            <button class="chart-btn active" id="viz4-toggle-late" style="color:var(--color-danger);border-color:var(--color-danger)">Terlambat</button>
+            <button class="chart-btn active" id="viz4-toggle-ontime">Tepat Waktu</button>
+            <button class="chart-btn active" id="viz4-toggle-late">Terlambat</button>
             <label style="display:flex;align-items:center;gap:6px;font-size:var(--text-xs);color:var(--text-muted)">
               Opasitas
               <input type="range" class="chart-range" id="viz4-opacity" min="10" max="100" value="60" style="width:60px">
@@ -225,8 +225,8 @@
             <p class="chart-card-subtitle">Distribusi berat produk vs status pengiriman</p>
           </div>
           <div class="chart-card-controls">
-            <button class="chart-btn active" id="viz5-toggle-ontime" style="color:var(--color-success);border-color:var(--color-success)">Tepat Waktu</button>
-            <button class="chart-btn active" id="viz5-toggle-late" style="color:var(--color-danger);border-color:var(--color-danger)">Terlambat</button>
+            <button class="chart-btn active" id="viz5-toggle-ontime">Tepat Waktu</button>
+            <button class="chart-btn active" id="viz5-toggle-late">Terlambat</button>
             <label style="display:flex;align-items:center;gap:6px;font-size:var(--text-xs);color:var(--text-muted)">
               <span id="viz5-bins-label">Bin: 20</span>
               <input type="range" class="chart-range" id="viz5-bins" min="10" max="50" value="20" style="width:60px">
@@ -274,22 +274,24 @@
             <h2 class="chart-card-title">Panggilan CS vs Rating</h2>
             <p class="chart-card-subtitle">Korelasi rating pelanggan dengan jumlah panggilan CS</p>
           </div>
-          <div class="chart-card-controls">
+          <div class="chart-card-controls" style="flex-direction: column; align-items: flex-end; gap: var(--space-2);">
             <button class="chart-btn active" id="viz7-toggle-split">Pisah Berdasarkan Status</button>
-            <select class="chart-select" id="viz7-mode-filter">
-              <option value="All">Semua Moda</option>
-              <option value="Ship">Kapal</option>
-              <option value="Flight">Penerbangan</option>
-              <option value="Road">Darat</option>
-            </select>
-            <select class="chart-select" id="viz7-warehouse-filter">
-              <option value="All">Semua Gudang</option>
-              <option value="A">Blok A</option>
-              <option value="B">Blok B</option>
-              <option value="C">Blok C</option>
-              <option value="D">Blok D</option>
-              <option value="F">Blok F</option>
-            </select>
+            <div style="display: flex; gap: var(--space-2);">
+              <select class="chart-select" id="viz7-mode-filter">
+                <option value="All">Semua Moda</option>
+                <option value="Ship">Kapal</option>
+                <option value="Flight">Penerbangan</option>
+                <option value="Road">Darat</option>
+              </select>
+              <select class="chart-select" id="viz7-warehouse-filter">
+                <option value="All">Semua Gudang</option>
+                <option value="A">Blok A</option>
+                <option value="B">Blok B</option>
+                <option value="C">Blok C</option>
+                <option value="D">Blok D</option>
+                <option value="F">Blok F</option>
+              </select>
+            </div>
           </div>
         </div>
         <div class="chart-body" style="height:360px">
@@ -337,7 +339,7 @@
     <footer class="dashboard-footer">
       <p>
         <svg style="vertical-align: middle; margin-right: 4px;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-        E-Commerce Shipment Analytics Dashboard — UAS Praktikum Visualisasi Data 2025/2026
+        E-Commerce Shipment Analytics Dashboard — UAS Praktikum Visualisasi Data 2026
       </p>
       <p style="margin-top:var(--space-2)">Dataset: <a href="https://www.kaggle.com/datasets/prachi13/customer-analytics" target="_blank" rel="noopener">Kaggle E-Commerce Shipping Dataset</a> • Kelompok 9</p>
       <div class="footer-links">

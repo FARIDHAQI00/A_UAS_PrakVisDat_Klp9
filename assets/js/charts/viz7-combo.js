@@ -45,40 +45,40 @@ const ComboChart = {
         type: 'bar',
         label: 'Tepat Waktu',
         data: comboData.map(d => d.onTime),
-        backgroundColor: 'rgba(34, 197, 94, 0.7)',
+        backgroundColor: 'rgba(34, 197, 94, 0.75)',
         borderColor: '#22c55e',
-        borderWidth: 1,
+        borderWidth: 1.5,
         borderRadius: 6,
         borderSkipped: false,
         stack: 'stack',
         order: 2,
-        barPercentage: 0.6
+        barPercentage: 0.65
       });
       datasets.push({
         type: 'bar',
         label: 'Terlambat',
         data: comboData.map(d => d.late),
-        backgroundColor: 'rgba(239, 68, 68, 0.7)',
+        backgroundColor: 'rgba(239, 68, 68, 0.75)',
         borderColor: '#ef4444',
-        borderWidth: 1,
+        borderWidth: 1.5,
         borderRadius: 6,
         borderSkipped: false,
         stack: 'stack',
         order: 2,
-        barPercentage: 0.6
+        barPercentage: 0.65
       });
     } else {
       datasets.push({
         type: 'bar',
         label: 'Total Jumlah',
         data: comboData.map(d => d.total),
-        backgroundColor: 'rgba(245, 158, 11, 0.6)',
-        borderColor: '#f59e0b',
-        borderWidth: 1,
+        backgroundColor: 'rgba(99, 179, 237, 0.55)',
+        borderColor: '#63b3ed',
+        borderWidth: 1.5,
         borderRadius: 6,
         borderSkipped: false,
         order: 2,
-        barPercentage: 0.6
+        barPercentage: 0.65
       });
     }
 
@@ -87,15 +87,16 @@ const ComboChart = {
       type: 'line',
       label: 'Rata-rata Panggilan CS',
       data: comboData.map(d => d.avgCsCalls),
-      borderColor: '#f59e0b',
-      backgroundColor: 'rgba(245, 158, 11, 0.1)',
+      borderColor: '#f97316',
+      backgroundColor: 'rgba(249, 115, 22, 0.08)',
       borderWidth: 3,
-      pointBackgroundColor: '#f59e0b',
-      pointBorderColor: '#f59e0b',
-      pointRadius: 6,
-      pointHoverRadius: 9,
-      fill: true,
-      tension: 0.4,
+      pointBackgroundColor: '#f97316',
+      pointBorderColor: '#fff',
+      pointBorderWidth: 2,
+      pointRadius: 7,
+      pointHoverRadius: 10,
+      fill: false,
+      tension: 0.35,
       yAxisID: 'y1',
       order: 1
     });
@@ -114,6 +115,7 @@ const ComboChart = {
           x: {
             grid: { display: false },
             ticks: {
+              color: '#a1a1aa',
               font: { size: 13, weight: '600' }
             }
           },
@@ -124,10 +126,14 @@ const ComboChart = {
               color: 'rgba(39, 39, 42, 0.7)',
               drawBorder: false
             },
+            ticks: {
+              color: '#a1a1aa',
+              callback: (val) => val.toLocaleString()
+            },
             title: {
               display: true,
               text: 'Jumlah',
-              color: '#94a3b8',
+              color: '#a1a1aa',
               font: { size: 11 }
             }
           },
@@ -135,14 +141,15 @@ const ComboChart = {
             beginAtZero: true,
             position: 'right',
             grid: { display: false },
+            ticks: {
+              color: '#f97316',
+              font: { size: 11 }
+            },
             title: {
               display: true,
               text: 'Rata-rata Panggilan CS',
-              color: '#f59e0b',
+              color: '#f97316',
               font: { size: 11 }
-            },
-            ticks: {
-              color: '#f59e0b'
             }
           }
         },
@@ -154,10 +161,16 @@ const ComboChart = {
               usePointStyle: true,
               pointStyleWidth: 10,
               padding: 16,
+              color: '#e4e4e7',
               font: { size: 12, weight: '500' }
             }
           },
           tooltip: {
+            backgroundColor: 'rgba(24, 24, 27, 0.95)',
+            borderColor: 'rgba(63, 63, 70, 0.8)',
+            borderWidth: 1,
+            titleColor: '#a1a1aa',
+            bodyColor: '#e4e4e7',
             callbacks: {
               label: (ctx) => {
                 if (ctx.dataset.yAxisID === 'y1') {
