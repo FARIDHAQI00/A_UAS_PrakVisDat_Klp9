@@ -137,7 +137,7 @@ const DataManager = {
     const avg = (arr, key) => arr.length > 0 ? arr.reduce((s, r) => s + r[key], 0) / arr.length : 0;
 
     const dims = ['Customer_rating', 'Customer_care_calls', 'Prior_purchases', 'Cost_of_the_Product', 'Discount_offered'];
-    const labels = ['Avg Rating', 'Avg CS Calls', 'Avg Prior Purchases', 'Avg Product Cost', 'Avg Discount'];
+    const labels = ['Rata-rata Rating', 'Rata-rata Panggilan CS', 'Rata-rata Pembelian Sblmnya', 'Rata-rata Harga Produk', 'Rata-rata Diskon'];
 
     // Compute raw values
     const onTimeRaw = dims.map(dim => avg(onTime, dim));

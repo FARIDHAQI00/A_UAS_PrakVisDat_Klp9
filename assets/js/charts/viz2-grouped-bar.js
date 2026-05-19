@@ -40,7 +40,8 @@ const GroupedBarChart = {
     else if (sortBy === 'late-rate') modeData.sort((a, b) => (b.late / b.total) - (a.late / a.total));
     else modeData.sort((a, b) => a.mode.localeCompare(b.mode));
 
-    const labels = modeData.map(d => d.mode);
+    const modeMap = { 'Ship': 'Kapal', 'Flight': 'Penerbangan', 'Road': 'Darat' };
+    const labels = modeData.map(d => modeMap[d.mode] || d.mode);
     let onTimeVals, lateVals;
 
     if (this.viewMode === 'percentage') {
@@ -59,7 +60,7 @@ const GroupedBarChart = {
         labels,
         datasets: [
           {
-            label: 'On Time',
+            label: 'Tepat Waktu',
             data: onTimeVals,
             backgroundColor: '#22c55e',
             borderRadius: 6,
@@ -68,7 +69,7 @@ const GroupedBarChart = {
             categoryPercentage: 0.6
           },
           {
-            label: 'Late',
+            label: 'Terlambat',
             data: lateVals,
             backgroundColor: '#ef4444',
             borderRadius: 6,

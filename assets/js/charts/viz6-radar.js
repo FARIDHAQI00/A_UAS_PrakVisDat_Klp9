@@ -24,7 +24,7 @@ const RadarChart = {
         labels: radarData.labels,
         datasets: [
           {
-            label: 'On Time',
+            label: 'Tepat Waktu',
             data: radarData.onTime,
             backgroundColor: 'rgba(34, 197, 94, 0.15)',
             borderColor: '#22c55e',
@@ -37,7 +37,7 @@ const RadarChart = {
             pointHoverRadius: 7
           },
           {
-            label: 'Late',
+            label: 'Terlambat',
             data: radarData.late,
             backgroundColor: 'rgba(239, 68, 68, 0.15)',
             borderColor: '#ef4444',
@@ -98,7 +98,7 @@ const RadarChart = {
               label: (ctx) => {
                 const dimIndex = ctx.dataIndex;
                 const raw = ctx.datasetIndex === 0 ? radarData.onTimeRaw[dimIndex] : radarData.lateRaw[dimIndex];
-                return ` ${ctx.dataset.label}: ${raw.toFixed(2)} (normalized: ${ctx.raw.toFixed(2)})`;
+                return ` ${ctx.dataset.label}: ${raw.toFixed(2)} (dinormalisasi: ${ctx.raw.toFixed(2)})`;
               }
             }
           }

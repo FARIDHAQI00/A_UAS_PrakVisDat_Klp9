@@ -16,7 +16,7 @@ const ComboChart = {
     document.getElementById('viz7-toggle-split')?.addEventListener('click', (e) => {
       this.splitByStatus = !this.splitByStatus;
       e.target.classList.toggle('active', this.splitByStatus);
-      e.target.textContent = this.splitByStatus ? 'Split by Status' : 'Combined';
+      e.target.textContent = this.splitByStatus ? 'Pisah Berdasarkan Status' : 'Gabung';
       this.render();
     });
 
@@ -43,7 +43,7 @@ const ComboChart = {
     if (this.splitByStatus) {
       datasets.push({
         type: 'bar',
-        label: 'On Time',
+        label: 'Tepat Waktu',
         data: comboData.map(d => d.onTime),
         backgroundColor: 'rgba(34, 197, 94, 0.7)',
         borderColor: '#22c55e',
@@ -56,7 +56,7 @@ const ComboChart = {
       });
       datasets.push({
         type: 'bar',
-        label: 'Late',
+        label: 'Terlambat',
         data: comboData.map(d => d.late),
         backgroundColor: 'rgba(239, 68, 68, 0.7)',
         borderColor: '#ef4444',
@@ -70,7 +70,7 @@ const ComboChart = {
     } else {
       datasets.push({
         type: 'bar',
-        label: 'Total Count',
+        label: 'Total Jumlah',
         data: comboData.map(d => d.total),
         backgroundColor: 'rgba(245, 158, 11, 0.6)',
         borderColor: '#f59e0b',
@@ -85,7 +85,7 @@ const ComboChart = {
     // Line — avg CS calls
     datasets.push({
       type: 'line',
-      label: 'Avg CS Calls',
+      label: 'Rata-rata Panggilan CS',
       data: comboData.map(d => d.avgCsCalls),
       borderColor: '#f59e0b',
       backgroundColor: 'rgba(245, 158, 11, 0.1)',
@@ -126,7 +126,7 @@ const ComboChart = {
             },
             title: {
               display: true,
-              text: 'Count',
+              text: 'Jumlah',
               color: '#94a3b8',
               font: { size: 11 }
             }
@@ -137,7 +137,7 @@ const ComboChart = {
             grid: { display: false },
             title: {
               display: true,
-              text: 'Avg CS Calls',
+              text: 'Rata-rata Panggilan CS',
               color: '#f59e0b',
               font: { size: 11 }
             },
@@ -161,7 +161,7 @@ const ComboChart = {
             callbacks: {
               label: (ctx) => {
                 if (ctx.dataset.yAxisID === 'y1') {
-                  return ` Avg CS Calls: ${ctx.raw.toFixed(2)}`;
+                  return ` Rata-rata Panggilan CS: ${ctx.raw.toFixed(2)}`;
                 }
                 return ` ${ctx.dataset.label}: ${parseInt(ctx.raw).toLocaleString()}`;
               }

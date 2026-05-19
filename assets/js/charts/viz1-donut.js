@@ -38,7 +38,7 @@ const DonutChart = {
         // Label
         ctx.font = `600 11px 'Plus Jakarta Sans', sans-serif`;
         ctx.fillStyle = '#52525b';
-        ctx.fillText('TOTAL SHIPMENTS', centerX, centerY + 14);
+        ctx.fillText('TOTAL PENGIRIMAN', centerX, centerY + 14);
         ctx.restore();
       }
     };
@@ -46,7 +46,7 @@ const DonutChart = {
     this.chart = new Chart(this.ctx, {
       type: 'doughnut',
       data: {
-        labels: ['On Time', 'Late'],
+        labels: ['Tepat Waktu', 'Terlambat'],
         datasets: [{
           data: [stats.onTime, stats.late],
           backgroundColor: [

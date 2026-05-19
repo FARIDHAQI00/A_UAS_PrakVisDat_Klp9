@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Interactive E-Commerce Shipment Analytics Dashboard — Analisis pengiriman e-commerce dengan 7 visualisasi interaktif. UAS Praktikum Visualisasi Data 2025/2026.">
-  <title>Shipment Analytics Dashboard — E-Commerce Delivery Insights</title>
+  <title>Dasbor Analitik Pengiriman — Wawasan Pengiriman E-Commerce</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
   <!-- Loading Screen -->
   <div class="dashboard-loading" id="loading-screen">
     <div class="loading-spinner"></div>
-    <div class="dashboard-loading-text">Loading shipment data...</div>
+    <div class="dashboard-loading-text">Memuat data pengiriman...</div>
   </div>
 
   <div class="dashboard-container">
@@ -32,13 +32,13 @@
         <div class="header-icon">
           <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
         </div>
-        <h1 class="header-title">Shipment <span class="accent">Analytics</span></h1>
+        <h1 class="header-title">Analitik <span class="accent">Pengiriman</span></h1>
         <p class="header-subtitle">E-Commerce Delivery Performance Dashboard — Analisis komprehensif 10,999 pengiriman untuk mengidentifikasi pola keterlambatan.</p>
       </div>
       <div class="header-right">
         <div class="header-badge">
           <span class="pulse-dot"></span>
-          Live Dashboard
+          Dasbor Langsung
         </div>
         <span class="header-date">Mei 2026 • UAS Prak VisDat</span>
       </div>
@@ -50,7 +50,7 @@
         <div class="kpi-icon blue">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
         </div>
-        <span class="kpi-label">Total Shipments</span>
+        <span class="kpi-label">Total Pengiriman</span>
         <span class="kpi-value" id="kpi-total">0</span>
         <span class="kpi-change positive">Dataset E-Commerce Kaggle</span>
       </div>
@@ -58,7 +58,7 @@
         <div class="kpi-icon green">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
         </div>
-        <span class="kpi-label">On Time Rate</span>
+        <span class="kpi-label">Tingkat Tepat Waktu</span>
         <span class="kpi-value" id="kpi-ontime">0%</span>
         <span class="kpi-change positive">▲ Tepat Waktu</span>
       </div>
@@ -66,7 +66,7 @@
         <div class="kpi-icon red">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
         </div>
-        <span class="kpi-label">Late Shipments</span>
+        <span class="kpi-label">Pengiriman Terlambat</span>
         <span class="kpi-value" id="kpi-late">0</span>
         <span class="kpi-change negative">▼ Perlu Perhatian</span>
       </div>
@@ -74,7 +74,7 @@
         <div class="kpi-icon yellow">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
         </div>
-        <span class="kpi-label">Avg Customer Rating</span>
+        <span class="kpi-label">Rata-rata Rating Pelanggan</span>
         <span class="kpi-value" id="kpi-rating">0</span>
         <span class="kpi-change warning">Skala 1 — 5</span>
       </div>
@@ -87,18 +87,18 @@
       <div class="filter-divider"></div>
 
       <div class="filter-group">
-        <span class="filter-label">Mode</span>
-        <button class="filter-pill active" data-filter="mode" data-value="All">All</button>
-        <button class="filter-pill" data-filter="mode" data-value="Ship">Ship</button>
-        <button class="filter-pill" data-filter="mode" data-value="Flight">Flight</button>
-        <button class="filter-pill" data-filter="mode" data-value="Road">Road</button>
+        <span class="filter-label">Moda</span>
+        <button class="filter-pill active" data-filter="mode" data-value="All">Semua</button>
+        <button class="filter-pill" data-filter="mode" data-value="Ship">Kapal</button>
+        <button class="filter-pill" data-filter="mode" data-value="Flight">Penerbangan</button>
+        <button class="filter-pill" data-filter="mode" data-value="Road">Darat</button>
       </div>
 
       <div class="filter-divider"></div>
 
       <div class="filter-group">
-        <span class="filter-label">Warehouse</span>
-        <button class="filter-pill active" data-filter="warehouse" data-value="All">All</button>
+        <span class="filter-label">Gudang</span>
+        <button class="filter-pill active" data-filter="warehouse" data-value="All">Semua</button>
         <button class="filter-pill" data-filter="warehouse" data-value="A">A</button>
         <button class="filter-pill" data-filter="warehouse" data-value="B">B</button>
         <button class="filter-pill" data-filter="warehouse" data-value="C">C</button>
@@ -109,32 +109,32 @@
       <div class="filter-divider"></div>
 
       <div class="filter-group">
-        <span class="filter-label">Importance</span>
-        <button class="filter-pill active" data-filter="importance" data-value="All">All</button>
-        <button class="filter-pill" data-filter="importance" data-value="Low">Low</button>
-        <button class="filter-pill" data-filter="importance" data-value="Medium">Med</button>
-        <button class="filter-pill" data-filter="importance" data-value="High">High</button>
+        <span class="filter-label">Kepentingan</span>
+        <button class="filter-pill active" data-filter="importance" data-value="All">Semua</button>
+        <button class="filter-pill" data-filter="importance" data-value="Low">Rendah</button>
+        <button class="filter-pill" data-filter="importance" data-value="Medium">Sedang</button>
+        <button class="filter-pill" data-filter="importance" data-value="High">Tinggi</button>
       </div>
 
       <div class="filter-divider"></div>
 
       <div class="filter-group">
         <span class="filter-label">Status</span>
-        <button class="filter-pill active" data-filter="status" data-value="All">All</button>
-        <button class="filter-pill" data-filter="status" data-value="On Time">On Time</button>
-        <button class="filter-pill" data-filter="status" data-value="Late">Late</button>
+        <button class="filter-pill active" data-filter="status" data-value="All">Semua</button>
+        <button class="filter-pill" data-filter="status" data-value="On Time">Tepat Waktu</button>
+        <button class="filter-pill" data-filter="status" data-value="Late">Terlambat</button>
       </div>
 
       <div class="filter-divider"></div>
 
       <div class="filter-group">
-        <span class="filter-label">Weight</span>
+        <span class="filter-label">Berat</span>
         <input type="range" class="chart-range" id="weight-range" min="0" max="10000" value="10000">
         <span id="weight-range-label" style="font-family:var(--font-mono);font-size:var(--text-xs);color:var(--text-secondary);white-space:nowrap">0 — 10000 g</span>
       </div>
 
       <span class="filter-counter" id="filter-counter">Menampilkan <strong>0</strong> / 0 data</span>
-      <button class="filter-reset" id="filter-reset">Reset All</button>
+      <button class="filter-reset" id="filter-reset">Reset Semua</button>
     </section>
 
     <!-- ═══════════ CHART GRID ═══════════ -->
@@ -145,10 +145,10 @@
         <div class="chart-card-header">
           <div class="chart-card-header-left">
             <span class="chart-card-number">VIZ 01</span>
-            <h2 class="chart-card-title">Delivery Status</h2>
+            <h2 class="chart-card-title">Status Pengiriman</h2>
             <p class="chart-card-subtitle">Proporsi pengiriman tepat waktu vs terlambat</p>
           </div>
-          <span class="badge badge-danger">40.3% Late</span>
+          <span class="badge badge-danger">40.3% Terlambat</span>
         </div>
         <div class="chart-body">
           <div class="chart-canvas-container">
@@ -162,16 +162,16 @@
         <div class="chart-card-header">
           <div class="chart-card-header-left">
             <span class="chart-card-number">VIZ 02</span>
-            <h2 class="chart-card-title">Shipment Mode vs Status</h2>
+            <h2 class="chart-card-title">Moda Pengiriman vs Status</h2>
             <p class="chart-card-subtitle">Perbandingan performa tiap moda pengiriman</p>
           </div>
           <div class="chart-card-controls">
-            <button class="chart-btn active" id="viz2-count-btn">Count</button>
-            <button class="chart-btn" id="viz2-pct-btn">Percentage</button>
+            <button class="chart-btn active" id="viz2-count-btn">Jumlah</button>
+            <button class="chart-btn" id="viz2-pct-btn">Persentase</button>
             <select class="chart-select" id="viz2-sort">
-              <option value="name">Sort: Name</option>
-              <option value="late-count">Sort: Late Count</option>
-              <option value="late-rate">Sort: Late Rate</option>
+              <option value="name">Urutkan: Nama</option>
+              <option value="late-count">Urutkan: Jml Terlambat</option>
+              <option value="late-rate">Urutkan: Tk Keterlambatan</option>
             </select>
           </div>
         </div>
@@ -185,11 +185,11 @@
         <div class="chart-card-header">
           <div class="chart-card-header-left">
             <span class="chart-card-number">VIZ 03</span>
-            <h2 class="chart-card-title">Warehouse × Mode Heatmap</h2>
+            <h2 class="chart-card-title">Heatmap Gudang × Moda</h2>
             <p class="chart-card-subtitle">Late rate (%) per blok gudang dan moda pengiriman</p>
           </div>
           <div class="chart-card-controls">
-            <button class="chart-btn active" id="viz3-toggle-values">Show Values</button>
+            <button class="chart-btn active" id="viz3-toggle-values">Tampilkan Nilai</button>
           </div>
         </div>
         <div class="chart-body" id="chart-heatmap"></div>
@@ -200,14 +200,14 @@
         <div class="chart-card-header">
           <div class="chart-card-header-left">
             <span class="chart-card-number">VIZ 04</span>
-            <h2 class="chart-card-title">Cost vs Discount</h2>
+            <h2 class="chart-card-title">Biaya vs Diskon</h2>
             <p class="chart-card-subtitle">Pola diskon terhadap status pengiriman</p>
           </div>
           <div class="chart-card-controls">
-            <button class="chart-btn active" id="viz4-toggle-ontime" style="color:var(--color-success);border-color:var(--color-success)">On Time</button>
-            <button class="chart-btn active" id="viz4-toggle-late" style="color:var(--color-danger);border-color:var(--color-danger)">Late</button>
+            <button class="chart-btn active" id="viz4-toggle-ontime" style="color:var(--color-success);border-color:var(--color-success)">Tepat Waktu</button>
+            <button class="chart-btn active" id="viz4-toggle-late" style="color:var(--color-danger);border-color:var(--color-danger)">Terlambat</button>
             <label style="display:flex;align-items:center;gap:6px;font-size:var(--text-xs);color:var(--text-muted)">
-              Opacity
+              Opasitas
               <input type="range" class="chart-range" id="viz4-opacity" min="10" max="100" value="60" style="width:60px">
             </label>
           </div>
@@ -221,14 +221,14 @@
         <div class="chart-card-header">
           <div class="chart-card-header-left">
             <span class="chart-card-number">VIZ 05</span>
-            <h2 class="chart-card-title">Weight Distribution</h2>
+            <h2 class="chart-card-title">Distribusi Berat</h2>
             <p class="chart-card-subtitle">Distribusi berat produk vs status pengiriman</p>
           </div>
           <div class="chart-card-controls">
-            <button class="chart-btn active" id="viz5-toggle-ontime" style="color:var(--color-success);border-color:var(--color-success)">On Time</button>
-            <button class="chart-btn active" id="viz5-toggle-late" style="color:var(--color-danger);border-color:var(--color-danger)">Late</button>
+            <button class="chart-btn active" id="viz5-toggle-ontime" style="color:var(--color-success);border-color:var(--color-success)">Tepat Waktu</button>
+            <button class="chart-btn active" id="viz5-toggle-late" style="color:var(--color-danger);border-color:var(--color-danger)">Terlambat</button>
             <label style="display:flex;align-items:center;gap:6px;font-size:var(--text-xs);color:var(--text-muted)">
-              <span id="viz5-bins-label">Bins: 20</span>
+              <span id="viz5-bins-label">Bin: 20</span>
               <input type="range" class="chart-range" id="viz5-bins" min="10" max="50" value="20" style="width:60px">
             </label>
           </div>
@@ -241,7 +241,7 @@
         <div class="chart-card-header">
           <div class="chart-card-header-left">
             <span class="chart-card-number">VIZ 06</span>
-            <h2 class="chart-card-title">Customer Profile</h2>
+            <h2 class="chart-card-title">Profil Pelanggan</h2>
             <p class="chart-card-subtitle">Radar perbandingan profil pelanggan On Time vs Late</p>
           </div>
         </div>
@@ -255,10 +255,10 @@
           <table style="width:100%;border-collapse:collapse;font-size:var(--text-xs)">
             <thead>
               <tr style="border-bottom:1px solid var(--bg-border)">
-                <th style="text-align:left;padding:var(--space-2);color:var(--text-muted);font-weight:600">Metric</th>
-                <th style="text-align:right;padding:var(--space-2);color:var(--color-success);font-weight:600">On Time</th>
-                <th style="text-align:right;padding:var(--space-2);color:var(--color-danger);font-weight:600">Late</th>
-                <th style="text-align:right;padding:var(--space-2);color:var(--text-muted);font-weight:600">Diff</th>
+                <th style="text-align:left;padding:var(--space-2);color:var(--text-muted);font-weight:600">Metrik</th>
+                <th style="text-align:right;padding:var(--space-2);color:var(--color-success);font-weight:600">Tepat Waktu</th>
+                <th style="text-align:right;padding:var(--space-2);color:var(--color-danger);font-weight:600">Terlambat</th>
+                <th style="text-align:right;padding:var(--space-2);color:var(--text-muted);font-weight:600">Selisih</th>
               </tr>
             </thead>
             <tbody id="radar-table-body"></tbody>
@@ -271,24 +271,24 @@
         <div class="chart-card-header">
           <div class="chart-card-header-left">
             <span class="chart-card-number">VIZ 07</span>
-            <h2 class="chart-card-title">CS Calls vs Rating</h2>
+            <h2 class="chart-card-title">Panggilan CS vs Rating</h2>
             <p class="chart-card-subtitle">Korelasi rating pelanggan dengan jumlah panggilan CS</p>
           </div>
           <div class="chart-card-controls">
-            <button class="chart-btn active" id="viz7-toggle-split">Split by Status</button>
+            <button class="chart-btn active" id="viz7-toggle-split">Pisah Berdasarkan Status</button>
             <select class="chart-select" id="viz7-mode-filter">
-              <option value="All">All Modes</option>
-              <option value="Ship">Ship</option>
-              <option value="Flight">Flight</option>
-              <option value="Road">Road</option>
+              <option value="All">Semua Moda</option>
+              <option value="Ship">Kapal</option>
+              <option value="Flight">Penerbangan</option>
+              <option value="Road">Darat</option>
             </select>
             <select class="chart-select" id="viz7-warehouse-filter">
-              <option value="All">All Warehouse</option>
-              <option value="A">Block A</option>
-              <option value="B">Block B</option>
-              <option value="C">Block C</option>
-              <option value="D">Block D</option>
-              <option value="F">Block F</option>
+              <option value="All">Semua Gudang</option>
+              <option value="A">Blok A</option>
+              <option value="B">Blok B</option>
+              <option value="C">Blok C</option>
+              <option value="D">Blok D</option>
+              <option value="F">Blok F</option>
             </select>
           </div>
         </div>
@@ -303,7 +303,7 @@
     <section class="insight-section">
       <h2 class="insight-section-title">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> 
-        Key Insights
+        Wawasan Utama
       </h2>
       <div class="insight-grid">
         <div class="insight-card stagger-child">
@@ -341,7 +341,7 @@
       </p>
       <p style="margin-top:var(--space-2)">Dataset: <a href="https://www.kaggle.com/datasets/prachi13/customer-analytics" target="_blank" rel="noopener">Kaggle E-Commerce Shipping Dataset</a> • Kelompok 9</p>
       <div class="footer-links">
-        <span>Built with Chart.js & D3.js</span>
+        <span>Dibuat dengan Chart.js & D3.js</span>
       </div>
     </footer>
 

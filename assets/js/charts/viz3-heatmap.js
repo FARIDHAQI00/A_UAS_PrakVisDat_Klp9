@@ -48,10 +48,12 @@ const HeatmapChart = {
       .domain([0, maxRate])
       .interpolator(d3.interpolateRgbBasis(['#131316', '#2a1a1a', '#4a2020', '#7a2828', '#b83232', '#ef4444']));
 
+    const modeMap = { 'Ship': 'Kapal', 'Flight': 'Penerbangan', 'Road': 'Darat' };
+
     // X Axis
     svg.append('g')
       .attr('transform', `translate(0,${height})`)
-      .call(d3.axisBottom(x).tickSize(0))
+      .call(d3.axisBottom(x).tickFormat(d => modeMap[d] || d).tickSize(0))
       .select('.domain').remove();
 
     // Y Axis
@@ -72,7 +74,7 @@ const HeatmapChart = {
       .attr('y', -60)
       .attr('x', -height / 2)
       .attr('text-anchor', 'middle')
-      .text('Warehouse Block');
+      .text('Blok Gudang');
 
     // Cells
     const cells = svg.selectAll('.heat-cell')
@@ -121,13 +123,14 @@ const HeatmapChart = {
     cells.selectAll('rect')
       .on('mouseover', (event, d) => {
         d3.select(event.target).attr('stroke', '#f59e0b').attr('stroke-width', 2);
+        const modeID = modeMap[d.mode] || d.mode;
         this.tooltip
           .classed('visible', true)
           .html(`
-            <div class="tooltip-title">Warehouse ${d.warehouse} × ${d.mode}</div>
+            <div class="tooltip-title">Gudang ${d.warehouse} × ${modeID}</div>
             <div class="tooltip-row"><span class="tooltip-label">Total</span><span class="tooltip-value">${d.total.toLocaleString()}</span></div>
-            <div class="tooltip-row"><span class="tooltip-label">Late</span><span class="tooltip-value" style="color:#ef4444">${d.late.toLocaleString()}</span></div>
-            <div class="tooltip-row"><span class="tooltip-label">Late Rate</span><span class="tooltip-value">${d.lateRate.toFixed(1)}%</span></div>
+            <div class="tooltip-row"><span class="tooltip-label">Terlambat</span><span class="tooltip-value" style="color:#ef4444">${d.late.toLocaleString()}</span></div>
+            <div class="tooltip-row"><span class="tooltip-label">Tk Keterlambatan</span><span class="tooltip-value">${d.lateRate.toFixed(1)}%</span></div>
           `)
           .style('left', (event.pageX + 12) + 'px')
           .style('top', (event.pageY - 40) + 'px');

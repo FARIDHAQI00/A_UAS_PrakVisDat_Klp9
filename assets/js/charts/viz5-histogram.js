@@ -17,7 +17,7 @@ const HistogramChart = {
 
     document.getElementById('viz5-bins')?.addEventListener('input', (e) => {
       this.binCount = +e.target.value;
-      document.getElementById('viz5-bins-label').textContent = `Bins: ${this.binCount}`;
+      document.getElementById('viz5-bins-label').textContent = `Bin: ${this.binCount}`;
       this.render();
     });
 
@@ -89,14 +89,14 @@ const HistogramChart = {
       .attr('class', 'axis-label')
       .attr('text-anchor', 'middle')
       .attr('x', width / 2).attr('y', height + 45)
-      .text('Weight (grams)');
+      .text('Berat (gram)');
 
     svg.append('text')
       .attr('class', 'axis-label')
       .attr('text-anchor', 'middle')
       .attr('transform', 'rotate(-90)')
       .attr('y', -45).attr('x', -height / 2)
-      .text('Count');
+      .text('Jumlah');
 
     // Bars — On Time
     if (this.showOnTime) {
@@ -166,7 +166,7 @@ const HistogramChart = {
       svg.append('text')
         .attr('x', xPos + 4).attr('y', 12)
         .style('fill', '#22c55e').style('font-size', '9px').style('font-weight', '600')
-        .text(`Avg: ${Math.round(avgOnTime)}g`);
+        .text(`Rata-rata: ${Math.round(avgOnTime)}g`);
     }
 
     if (this.showLate && lateWeights.length > 0) {
@@ -183,7 +183,7 @@ const HistogramChart = {
       svg.append('text')
         .attr('x', xPos + 4).attr('y', 25)
         .style('fill', '#ef4444').style('font-size', '9px').style('font-weight', '600')
-        .text(`Avg: ${Math.round(avgLate)}g`);
+        .text(`Rata-rata: ${Math.round(avgLate)}g`);
     }
   },
 
@@ -192,11 +192,11 @@ const HistogramChart = {
     this.tooltip
       .classed('visible', true)
       .html(`
-        <div class="tooltip-title">Weight: ${d.label} g</div>
+        <div class="tooltip-title">Berat: ${d.label} g</div>
         <div class="tooltip-row"><span class="tooltip-label">Total</span><span class="tooltip-value">${d.total.toLocaleString()}</span></div>
-        <div class="tooltip-row"><span class="tooltip-label">On Time</span><span class="tooltip-value" style="color:#22c55e">${d.onTime.toLocaleString()}</span></div>
-        <div class="tooltip-row"><span class="tooltip-label">Late</span><span class="tooltip-value" style="color:#ef4444">${d.late.toLocaleString()}</span></div>
-        <div class="tooltip-row"><span class="tooltip-label">Late Rate</span><span class="tooltip-value">${latePct}%</span></div>
+        <div class="tooltip-row"><span class="tooltip-label">Tepat Waktu</span><span class="tooltip-value" style="color:#22c55e">${d.onTime.toLocaleString()}</span></div>
+        <div class="tooltip-row"><span class="tooltip-label">Terlambat</span><span class="tooltip-value" style="color:#ef4444">${d.late.toLocaleString()}</span></div>
+        <div class="tooltip-row"><span class="tooltip-label">Tk Keterlambatan</span><span class="tooltip-value">${latePct}%</span></div>
       `)
       .style('left', (event.pageX + 12) + 'px')
       .style('top', (event.pageY - 40) + 'px');

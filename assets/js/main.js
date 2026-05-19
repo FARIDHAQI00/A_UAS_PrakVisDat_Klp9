@@ -144,9 +144,9 @@ async function initDashboard() {
       loadingEl.innerHTML = `
         <div style="text-align:center;color:var(--color-danger)">
           <div style="font-size:3rem;margin-bottom:1rem">⚠️</div>
-          <div style="font-size:1.2rem;font-weight:600">Failed to load data</div>
+          <div style="font-size:1.2rem;font-weight:600">Gagal memuat data</div>
           <div style="color:var(--text-secondary);margin-top:0.5rem;font-size:0.9rem">
-            Please ensure you're running via HTTP server (not file://)
+            Harap pastikan Anda menjalankan via HTTP server (bukan file://)
           </div>
           <div style="color:var(--text-muted);margin-top:0.5rem;font-size:0.8rem">
             ${error.message}

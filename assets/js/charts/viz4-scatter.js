@@ -80,14 +80,14 @@ const ScatterChart = {
       .attr('class', 'axis-label')
       .attr('text-anchor', 'middle')
       .attr('x', width / 2).attr('y', height + 40)
-      .text('Cost of Product ($)');
+      .text('Biaya Produk ($)');
 
     svg.append('text')
       .attr('class', 'axis-label')
       .attr('text-anchor', 'middle')
       .attr('transform', 'rotate(-90)')
       .attr('y', -45).attr('x', -height / 2)
-      .text('Discount Offered (%)');
+      .text('Diskon yang Diberikan (%)');
 
     // Median lines
     const allCosts = DataManager.filteredData.map(d => d.Cost_of_the_Product);
@@ -109,12 +109,12 @@ const ScatterChart = {
     svg.append('text')
       .attr('x', x(medianCost) + 5).attr('y', 12)
       .style('fill', '#52525b').style('font-size', '9px')
-      .text(`Median Cost: $${Math.round(medianCost)}`);
+      .text(`Median Biaya: $${Math.round(medianCost)}`);
 
     svg.append('text')
       .attr('x', 5).attr('y', y(medianDiscount) - 5)
       .style('fill', '#52525b').style('font-size', '9px')
-      .text(`Median Discount: ${Math.round(medianDiscount)}%`);
+      .text(`Median Diskon: ${Math.round(medianDiscount)}%`);
 
     // Points — sample if too many for performance
     const plotData = data.length > 3000 ? data.filter((_, i) => i % Math.ceil(data.length / 3000) === 0) : data;
@@ -140,7 +140,7 @@ const ScatterChart = {
         });
         
         const countLabel = document.getElementById('viz4-selection-count');
-        if (countLabel) countLabel.textContent = `Selected: ${selected.length}`;
+        if (countLabel) countLabel.textContent = `Terpilih: ${selected.length}`;
       });
 
     svg.append('g').attr('class', 'brush').call(brush);
@@ -158,15 +158,16 @@ const ScatterChart = {
       .style('opacity', 0)
       .on('mouseover', (event, d) => {
         d3.select(event.target).attr('r', 7).style('opacity', 1);
+        const modeMap = {'Ship':'Kapal','Flight':'Penerbangan','Road':'Darat'};
         this.tooltip
           .classed('visible', true)
           .html(`
-            <div class="tooltip-title">Product #${d.id}</div>
-            <div class="tooltip-row"><span class="tooltip-label">Cost</span><span class="tooltip-value">$${d.cost}</span></div>
-            <div class="tooltip-row"><span class="tooltip-label">Discount</span><span class="tooltip-value">${d.discount}%</span></div>
-            <div class="tooltip-row"><span class="tooltip-label">Status</span><span class="tooltip-value" style="color:${d.status === 'On Time' ? '#22c55e' : '#ef4444'}">${d.status}</span></div>
-            <div class="tooltip-row"><span class="tooltip-label">Mode</span><span class="tooltip-value">${d.mode}</span></div>
-            <div class="tooltip-row"><span class="tooltip-label">Warehouse</span><span class="tooltip-value">${d.warehouse}</span></div>
+            <div class="tooltip-title">Produk #${d.id}</div>
+            <div class="tooltip-row"><span class="tooltip-label">Biaya</span><span class="tooltip-value">$${d.cost}</span></div>
+            <div class="tooltip-row"><span class="tooltip-label">Diskon</span><span class="tooltip-value">${d.discount}%</span></div>
+            <div class="tooltip-row"><span class="tooltip-label">Status</span><span class="tooltip-value" style="color:${d.status === 'On Time' ? '#22c55e' : '#ef4444'}">${d.status === 'On Time' ? 'Tepat Waktu' : 'Terlambat'}</span></div>
+            <div class="tooltip-row"><span class="tooltip-label">Moda</span><span class="tooltip-value">${modeMap[d.mode] || d.mode}</span></div>
+            <div class="tooltip-row"><span class="tooltip-label">Gudang</span><span class="tooltip-value">${d.warehouse}</span></div>
           `)
           .style('left', (event.pageX + 12) + 'px')
           .style('top', (event.pageY - 40) + 'px');
