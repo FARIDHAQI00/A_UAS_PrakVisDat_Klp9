@@ -2,18 +2,16 @@
 
 Sebuah dashboard analitik interaktif bertema *Dark Luxury* yang dirancang untuk memvisualisasikan dan menganalisis data pengiriman e-commerce. Proyek ini dikembangkan sebagai pemenuhan Tugas Akhir / Ujian Akhir Semester (UAS) Praktikum Visualisasi Data.
 
-![Dashboard Preview](assets/dashboard-preview.png) *(Tambahkan screenshot dashboard di sini)*
-
-## 👥 Kelompok 9 - Kelas A
+## Kelompok 9 - Kelas A
 
 Proyek ini dikembangkan oleh 4 orang anggota:
 
-1. **[Nama Anggota 1]** - [NIM] - *(Peran/Tugas)*
-2. **[Nama Anggota 2]** - [NIM] - *(Peran/Tugas)*
-3. **[Nama Anggota 3]** - [NIM] - *(Peran/Tugas)*
-4. **[Nama Anggota 4]** - [NIM] - *(Peran/Tugas)*
+1. **Keiveen Aldiandra** (2408107010085)
+2. **M Abid Rahmatillahh Z** (2408107010090)
+3. **T Farid Haqi** (2408107010091)
+4. **Muhammad Sulthan Shadiq** (2408107010104)
 
-## 🎯 Fitur Utama
+## Fitur Utama
 
 Dashboard ini menampilkan 7 visualisasi data interaktif menggunakan library **ApexCharts**, dengan desain antarmuka modern, *glassmorphism*, dan animasi yang mulus.
 
@@ -25,7 +23,7 @@ Dashboard ini menampilkan 7 visualisasi data interaktif menggunakan library **Ap
 6. **Performance Metrics (Radar Chart)** - Analisis metrik kinerja (Ketepatan waktu, Kepentingan barang, Rating, dll).
 7. **Volume vs Revenue Trend (Combo Chart)** - Tren kombinasi antara volume pengiriman (Bar Chart) dan total pendapatan (Line Chart) per kategori produk.
 
-## 🛠️ Teknologi yang Digunakan
+## Teknologi yang Digunakan
 
 - **HTML5** - Struktur utama halaman web.
 - **Vanilla CSS (CSS3)** - Styling dengan tema *Dark Luxury* (warna amber/emas), *CSS Variables*, Flexbox/Grid, dan *Micro-animations*.
@@ -33,7 +31,7 @@ Dashboard ini menampilkan 7 visualisasi data interaktif menggunakan library **Ap
 - **[Chart.js](https://www.chartjs.org/) & [D3.js](https://d3js.org/)** - Library visualisasi data yang interaktif dan responsif, sesuai dengan ketentuan yang membolehkan penggunaan D3.js.
 - **[Phosphor Icons](https://phosphoricons.com/)** - Ikon SVG premium yang terintegrasi pada antarmuka.
 
-## 📂 Struktur Direktori
+## Struktur Direktori
 
 ```text
 A_UAS_PrakVisDat_Klp9/
@@ -59,7 +57,7 @@ A_UAS_PrakVisDat_Klp9/
 │           └── viz7-combo.js
 ```
 
-## 🚀 Cara Menjalankan (Setup)
+## Cara Menjalankan (Setup)
 
 Karena proyek ini menggunakan HTML, CSS, dan JS murni (tanpa framework/bundler khusus), Anda dapat menjalankannya dengan sangat mudah:
 
@@ -70,7 +68,7 @@ Karena proyek ini menggunakan HTML, CSS, dan JS murni (tanpa framework/bundler k
      - Klik kanan pada `index.html` -> Pilih *"Open with Live Server"*.
 4. Dashboard akan terbuka di `http://127.0.0.1:5500`.
 
-## 🎨 Tema & Desain (Dark Luxury)
+## Tema & Desain (Dark Luxury)
 
 Proyek ini tidak menggunakan Tailwind CSS atau framework CSS lainnya, melainkan mengandalkan arsitektur *Vanilla CSS* yang rapi. Kami menerapkan:
 - **Root Variables (`tokens.css`)**: Mengatur palet warna dominan (Hitam, Abu-abu gelap, dan aksen *Amber/Gold*).
@@ -78,5 +76,3 @@ Proyek ini tidak menggunakan Tailwind CSS atau framework CSS lainnya, melainkan 
 - **Responsive Design**: Menggunakan CSS Grid & Flexbox untuk memastikan tampilan menyesuaikan dari layar laptop hingga monitor ultrawide.
 
 ---
-
-*Dibuat dengan ❤️ oleh Kelompok 9 untuk UAS Praktikum Visualisasi Data.*
