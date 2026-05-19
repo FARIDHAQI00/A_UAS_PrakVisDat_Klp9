@@ -1,4 +1,4 @@
-# E-Commerce Shipment Analytics Dashboard 📦✨
+# E-Commerce Shipment Analytics Dashboard
 
 Sebuah dashboard analitik interaktif bertema *Dark Luxury* yang dirancang untuk memvisualisasikan dan menganalisis data pengiriman e-commerce. Proyek ini dikembangkan sebagai pemenuhan Tugas Akhir / Ujian Akhir Semester (UAS) Praktikum Visualisasi Data.
 
