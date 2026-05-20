@@ -75,7 +75,7 @@ function updateKPIs() {
   const ratingEl = document.getElementById('kpi-rating');
 
   if (totalEl)  animateValue(totalEl,  kpis.total,      3500, false, '');
-  if (onTimeEl) animateValue(onTimeEl, kpis.onTimeRate, 3500, true,  '%');
+  if (onTimeEl) animateValue(onTimeEl, kpis.onTime,     3500, false, '');
   if (lateEl)   animateValue(lateEl,   kpis.late,       3500, false, '');
   if (ratingEl) animateValue(ratingEl, kpis.avgRating,  3500, true,  '');
 }
